@@ -9,11 +9,13 @@
 		"start": "npx tsc && node ./dist/index.js"
 	},
 	"dependencies": {
+		"@prisma/client": "5.20.0",
 		"dotenv": "^16.4.5",
 		"telegraf": "^4.16.3",
 		"typescript": "^5.6.3"
 	},
 	"devDependencies": {
-		"@types/node": "^22.7.5"
+		"@types/node": "^22.7.5",
+		"prisma": "5.20.0"
 	}
 }
