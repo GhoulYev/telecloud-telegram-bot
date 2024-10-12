@@ -1,0 +1,12 @@
+{
+  "name": "telecloud-telegram-bot",
+  "version": "0.0.1",
+  "description": "Telegram bot for telecloud",
+  "main": "index.js",
+  "author": "Vladislav <ghoulyaev@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "telegraf": "^4.16.3",
+    "typescript": "^5.6.3"
+  }
+}
