@@ -5,6 +5,7 @@ import { start } from './commands/start';
 import { register } from './commands/register';
 import { reset } from './commands/reset';
 import { download } from './commands/download';
+import { get } from './commands/get';
 dotenv.config();
 
 if (!process.env.TOKEN) {
@@ -17,7 +18,7 @@ const prisma = new PrismaClient();
 telegraf.start(async (ctx) => start(prisma, ctx));
 
 telegraf.command('get', (ctx) => {
-	//place to API
+	get(ctx);
 });
 
 telegraf.command('set', (ctx) => reset(prisma, ctx));
