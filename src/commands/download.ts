@@ -35,7 +35,8 @@ export const download = async (
 					return;
 				}
 				const file = ctx.update.message.document;
-				ctx.telegram.getFileLink(file.file_id).then((url) => {
+				ctx.telegram.getFileLink(file.file_id).then((urlObject) => {
+					let url = urlObject.href;
 					var options = {
 						method: 'POST',
 						url: `${process.env.API_URL}/upload`,
