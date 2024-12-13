@@ -6,13 +6,25 @@ export const reset = async (prisma: PrismaClient, ctx: Context) => {
 		return;
 	}
 	prisma.user
-		.update({
-			data: {
-				step: 0,
-			},
+		.findUnique({
 			where: {
-				id: ctx.message.from.id,
+				id: ctx.from?.id,
 			},
 		})
-		.then(() => ctx.reply('Введите новый поддомен'));
+		.then((result) => {
+			if (!result) {
+				prisma.user
+					.update({
+						data: {
+							step: 0,
+						},
+						where: {
+							id: ctx.from!.id,
+						},
+					})
+					.then(() => ctx.reply('Введите новый поддомен'));
+			} else {
+				ctx.reply('Введите /start для начала работы!');
+			}
+		});
 };
